@@ -6,7 +6,9 @@ COPY . .
 
 RUN go get ./...
 
-RUN go build hello.go
+RUN go build main.go
 
-CMD ./hello
+EXPOSE 8080
+
+CMD ./main
 
