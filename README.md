@@ -38,5 +38,5 @@ Puzzles is an interactive web application that will challenge the user in variou
 - June: Implement last features and solve bugs
 
 # Docker
-`docker build -t test .`
+`docker build -t test .`  
 `docker run -p 8080:8080 --rm -it test`
