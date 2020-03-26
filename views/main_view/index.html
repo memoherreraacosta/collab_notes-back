@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CollabNotes</title>
+    <style>
+      body{
+    background-color: #dbf7ff;
+  }
+  button{
+    background-color:rgb(102, 195, 231);
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    margin: 50px auto 50px auto;
+  }
+  
+  h2{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+  }
+  
+  p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    text-align: justify;
+  }
+  
+  #greeting-container {
+    margin-top: 20px;
+  }
+  
+  .arrow{
+    height: 24px;
+    margin-right: 10px;
+    position: relative;
+    top: 4px;
+    width: 24px;
+  }
+  
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  
+  .content{
+      margin-left: 35px; 
+  }
+  
+  .dropdown{
+      margin: 30px;
+  }
+  
+  .header{
+    background-color: #9bbed6;
+    height: 70px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  .hidden{
+    display: none;
+  }
+  
+  .inline{
+    display: inline;
+  }
+  
+  .main {
+    margin-top: 60px;
+    padding: 16px;
+    width: 75%;
+  }
+  
+  .page-heading{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .profile-picture{
+    border-radius: 10%;
+    display: block;
+    margin: auto;
+    width: 10%;
+  }
+  
+  
+    </style>
+    <script src="main.js"></script>
+  </head>
+  <body onload="loadPage()">
+    <div class="header">
+      <h1 class="page-heading">
+        CollabNotes
+      </h1>
+    </div>
+    <div class="main center">
+        <p id="hello"></p>
+        <h2 class="center greeting">
+            Welcome User!
+        </h2>
+        <img class="profile-picture" src="https://image.flaticon.com/icons/svg/21/21104.svg" />
+        <h2>Your notes</h2>
+        <!--BACKGROUND-->
+        <div id="n1" class="dropdown" >
+            <div onclick="showContent('n1')">
+              <img class="arrow inline" src="https://image.flaticon.com/icons/png/512/130/130884.png" />
+              <h2 class="inline">Mathematics</h2>
+            </div>
+            <div class="content hidden">
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+                  accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
+                  quae ab illo inventore veritatis et quasi architecto beatae vitae 
+                  dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
+                  sit aspernatur aut odit aut fugit, sed quia consequuntur magni 
+                  dolores eos qui ratione voluptatem sequi nesciunt. Neque porro 
+                  quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+                  adipisci velit, sed quia non numquam eius modi tempora incidunt 
+                  ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim 
+                  ad minima veniam, quis nostrum exercitationem ullam corporis 
+                  suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
+                  Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
+                  esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
+                  fugiat quo voluptas nulla pariatur?
+                </p>
+            </div>
+        </div>
+
+        <div id="n2" class="dropdown" >
+          <div onclick="showContent('n2')">
+            <img class="arrow inline" src="https://image.flaticon.com/icons/png/512/130/130884.png" />
+            <h2 class="inline">Physics</h2>
+          </div>
+          <div class="content hidden">
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
+                quae ab illo inventore veritatis et quasi architecto beatae vitae 
+                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
+                sit aspernatur aut odit aut fugit, sed quia consequuntur magni 
+                dolores eos qui ratione voluptatem sequi nesciunt. Neque porro 
+                quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+                adipisci velit, sed quia non numquam eius modi tempora incidunt 
+                ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim 
+                ad minima veniam, quis nostrum exercitationem ullam corporis 
+                suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
+                Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
+                esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
+                fugiat quo voluptas nulla pariatur?
+              </p>
+          </div>
+      </div>
+
+      <div id="n3" class="dropdown" >
+        <div onclick="showContent('n3')">
+          <img class="arrow inline" src="https://image.flaticon.com/icons/png/512/130/130884.png" />
+          <h2 class="inline">Chemistry</h2>
+        </div>
+        <div class="content hidden">
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa 
+              quae ab illo inventore veritatis et quasi architecto beatae vitae 
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
+              sit aspernatur aut odit aut fugit, sed quia consequuntur magni 
+              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro 
+              quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
+              adipisci velit, sed quia non numquam eius modi tempora incidunt 
+              ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim 
+              ad minima veniam, quis nostrum exercitationem ullam corporis 
+              suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
+              Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
+              esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
+              fugiat quo voluptas nulla pariatur?
+            </p>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        
+  function showContent(section_name){
+      let section = document.getElementById(section_name);
+      section.classList.toggle('showing');
+      section.getElementsByClassName("content")[0].classList.toggle("hidden");
+      if(section.classList.contains("showing")){
+          section.getElementsByClassName("arrow")[0].src='https://i7.pngguru.com/preview/155/208/53/computer-icons-drop-down-list-arrow-arrow-thumbnail.jpg';
+      } else{
+          section.getElementsByClassName("arrow")[0].src='https://image.flaticon.com/icons/png/512/130/130884.png'
+      }
+  }
+  
+    </script>
+  </body>
+</html>

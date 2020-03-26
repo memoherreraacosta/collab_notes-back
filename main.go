@@ -51,7 +51,8 @@ func main(){
 }
 
 func handleMain(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "index.html")
+	http.FileServer(http.Dir("views/signin"))
+	http.ServeFile(w, r, "views/signin/index.html")
 }
 
 func handleGoogleLogin(w http.ResponseWriter, r *http.Request) {
@@ -60,14 +61,14 @@ func handleGoogleLogin(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleGoogleCallback(w http.ResponseWriter, r *http.Request) {
-	content, err := getUserInfo(r.FormValue("state"), r.FormValue("code"))
+	_, err := getUserInfo(r.FormValue("state"), r.FormValue("code"))
 	if err != nil {
 		fmt.Println(err.Error())
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
 
-	fmt.Fprintf(w, "Content: %s\n", content)
+	http.ServeFile(w, r, "views/main_view/index.html")
 }
 
 func getUserInfo(state string, code string) ([]byte, error) {
