@@ -2,6 +2,8 @@
 .env
 
 # package json file
-
 package.json
 package-lock.json
+
+# db credentials
+credentials.py
