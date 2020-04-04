@@ -6,9 +6,9 @@ USE `collabnotes` ;
 
 
 -- -----------------------------------------------------
--- Tabla Estudiante
+-- Tabla ESTUDIANTE
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Estudiante` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`ESTUDIANTE` (
   `nombre` VARCHAR(45) NOT NULL,
   `idEstudiante` INT NOT NULL,
   PRIMARY KEY (`idEstudiante`))
@@ -16,9 +16,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla Archivo
+-- Tabla ARCHIVO
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Archivo` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`ARCHIVO` (
   `url` VARCHAR(100) NOT NULL,
   `titulo` VARCHAR(40) NOT NULL,
   `fecha` DATE NOT NULL,
@@ -27,14 +27,14 @@ CREATE TABLE IF NOT EXISTS `collabnotes`.`Archivo` (
   PRIMARY KEY (`url`),
   CONSTRAINT `fk_autor.autor`
     FOREIGN KEY (`idEstudiante`)
-    REFERENCES `collabnotes`.`Estudiante` (`idEstudiante`))
+    REFERENCES `collabnotes`.`ESTUDIANTE` (`idEstudiante`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla Docente
+-- Tabla DOCENTE
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Docente` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`DOCENTE` (
   `idDocente` INT NOT NULL,
   `nombre` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idDocente`))
@@ -43,9 +43,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla Clase
+-- Tabla CLASE
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Clase` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`CLASE` (
   `clave` INT NOT NULL,
   `idDocente` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
@@ -53,74 +53,74 @@ CREATE TABLE IF NOT EXISTS `collabnotes`.`Clase` (
   PRIMARY KEY (`clave`, `idDocente`),
   CONSTRAINT `fk_docente.docente`
     FOREIGN KEY (`idDocente`)
-    REFERENCES `collabnotes`.`Docente` (`idDocente`))
+    REFERENCES `collabnotes`.`DOCENTE` (`idDocente`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Tabla Tag
+-- Tabla TAG
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Tag` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`TAG` (
   `nombre` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`nombre`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla Estudiante-Clase
+-- Tabla ESTUDIANTE-CLASE
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Estudiante-Clase` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`ESTUDIANTE-CLASE` (
   `idEstudiante` INT NOT NULL,
   `clave` INT NOT NULL,
   PRIMARY KEY (`idEstudiante`, `clave`),
   CONSTRAINT `fk_idEstudiante.idEstudiante`
     FOREIGN KEY (`idEstudiante`)
-    REFERENCES `collabnotes`.`Estudiante` (`idEstudiante`),
+    REFERENCES `collabnotes`.`ESTUDIANTE` (`idEstudiante`),
   CONSTRAINT `fk_idClaseE.idClaseE`
     FOREIGN KEY (`clave`)
-    REFERENCES `collabnotes`.`Clase` (`clave`))
+    REFERENCES `collabnotes`.`CLASE` (`clave`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Tabla Docente-Clase
+-- Tabla DOCENTE-CLASE
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Docente-Clase` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`DOCENTE-CLASE` (
   `idDocente` INT NOT NULL,
   `clave` INT NOT NULL,
   PRIMARY KEY (`idDocente`, `clave`),
   CONSTRAINT `fk_idDocente.idDocente`
     FOREIGN KEY (`idDocente`)
-    REFERENCES `collabnotes`.`Docente` (`idDocente`),
+    REFERENCES `collabnotes`.`DOCENTE` (`idDocente`),
   CONSTRAINT `fk_idClaseD.idClaseD`
     FOREIGN KEY (`clave`)
-    REFERENCES `collabnotes`.`Clase` (`clave`))
+    REFERENCES `collabnotes`.`CLASE` (`clave`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Tabla Archivo-Tag
+-- Tabla ARCHIVO-TAG
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Archivo-Tag` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`ARCHIVO-TAG` (
   `urlArchivo` VARCHAR(100) NOT NULL,
   `nombre` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`urlArchivo`, `nombre`),
   CONSTRAINT `fk_urlArchivo.urlArchivo`
     FOREIGN KEY (`urlArchivo`)
-    REFERENCES `collabnotes`.`Archivo` (`url`),
+    REFERENCES `collabnotes`.`ARCHIVO` (`url`),
   CONSTRAINT `fk_nombreTagA.nombreTagA`
     FOREIGN KEY (`nombre`)
-    REFERENCES `collabnotes`.`Tag` (`nombre`))
+    REFERENCES `collabnotes`.`TAG` (`nombre`))
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Tabla Clase-Tag
+-- Tabla CLASE-TAG
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `collabnotes`.`Clase-Tag` (
+CREATE TABLE IF NOT EXISTS `collabnotes`.`CLASE-TAG` (
   `clave` INT NOT NULL,
   `nombre` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`clave`, `nombre`),
   CONSTRAINT `fk_idClase.idClase`
     FOREIGN KEY (`clave`)
-    REFERENCES `collabnotes`.`Clase` (`clave`),
+    REFERENCES `collabnotes`.`CLASE` (`clave`),
   CONSTRAINT `fk_nombreTag.nombreTag`
     FOREIGN KEY (`nombre`)
-    REFERENCES `collabnotes`.`Tag` (`nombre`))
+    REFERENCES `collabnotes`.`TAG` (`nombre`))
 ENGINE = InnoDB;
