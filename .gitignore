@@ -1,3 +1,7 @@
 # misc
 .env
 
+# package json file
+
+package.json
+package-lock.json
