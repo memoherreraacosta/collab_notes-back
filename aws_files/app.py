@@ -10,6 +10,7 @@ from json import dumps
 CREDENTIALS = {
     'user': credentials.USER,
     'password': credentials.PASSWORD,
+    'database': credentials.DBNAME,
     'host': credentials.HOST,
     'raise_on_warnings': credentials.RAISE_ON_WARNINGS,
     'use_pure': credentials.USE_PURE

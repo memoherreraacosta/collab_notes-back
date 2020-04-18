@@ -1,14 +1,15 @@
-package main
+package collabnotes
 
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
+	"os"
+
+	"github.com/joho/godotenv"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
-	"github.com/joho/godotenv"
-	"log"
-	"os"
 )
 
 var (
@@ -21,11 +22,11 @@ func goDotEnvVariable(key string) string {
 
 	// load .env file
 	err := godotenv.Load(".env")
-  
+
 	if err != nil {
-	  log.Fatalf("Error loading .env file")
+		log.Fatalf("Error loading .env file")
 	}
-  
+
 	return os.Getenv(key)
 }
 
@@ -39,12 +40,11 @@ func init() {
 	}
 }
 
-
-func main(){
+func main() {
 
 	godotenv.Load(".env")
 	http.HandleFunc("/", handleMain)
-    http.Handle("/src/", http.StripPrefix("/src/", http.FileServer(http.Dir("src"))))
+	http.Handle("/src/", http.StripPrefix("/src/", http.FileServer(http.Dir("src"))))
 	http.HandleFunc("/login", handleGoogleLogin)
 	http.HandleFunc("/callback", handleGoogleCallback)
 	http.ListenAndServe(":8080", nil)
