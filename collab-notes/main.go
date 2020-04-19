@@ -1,4 +1,4 @@
-package collabnotes
+package main
 
 import (
 	"fmt"
@@ -16,12 +16,12 @@ var (
 	googleOauthConfig *oauth2.Config
 	// TODO: randomize it
 	oauthStateString = "pseudo-random"
+	envPath          = "../.env"
 )
 
 func goDotEnvVariable(key string) string {
-
 	// load .env file
-	err := godotenv.Load(".env")
+	err := godotenv.Load(envPath)
 
 	if err != nil {
 		log.Fatalf("Error loading .env file")
@@ -41,8 +41,7 @@ func init() {
 }
 
 func main() {
-
-	godotenv.Load(".env")
+	godotenv.Load(envPath)
 	http.HandleFunc("/", handleMain)
 	http.Handle("/src/", http.StripPrefix("/src/", http.FileServer(http.Dir("src"))))
 	http.HandleFunc("/login", handleGoogleLogin)
