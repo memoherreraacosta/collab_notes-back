@@ -23,11 +23,12 @@ def lambda_handler(event, context):
         cnx = mysql.connector.connect(**CREDENTIALS)
 
         data = event['queryStringParameters']
-        query = adapter.get_query(data)
-
+        key, query = adapter.get_query(data)
         cursor = cnx.cursor()
         cursor.execute(query)
-        cnx.commit()
+
+        if key.lower() != "select":
+            cnx.commit()
 
         output = adapter.get_data(cursor)
 
