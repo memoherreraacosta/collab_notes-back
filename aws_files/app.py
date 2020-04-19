@@ -27,6 +27,8 @@ def lambda_handler(event, context):
 
         cursor = cnx.cursor()
         cursor.execute(query)
+        cnx.commit()
+
         output = adapter.get_data(cursor)
 
     except mysql.connector.Error as err:
@@ -40,6 +42,7 @@ def lambda_handler(event, context):
             print(err)
             output = err
     else:
+        cursor.close()
         cnx.close()
         return {
             "isBase64Encoded": False,
