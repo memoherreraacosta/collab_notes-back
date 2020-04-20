@@ -66,8 +66,8 @@ func handleGoogleCallback(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
-
-	http.ServeFile(w, r, "views/main_view/index.html")
+	http.Redirect(w, r, "http://localhost:3000/", http.StatusTemporaryRedirect)
+	//http.ServeFile(w, r, "views/main_view/index.html")
 }
 
 func getUserInfo(state string, code string) ([]byte, error) {
