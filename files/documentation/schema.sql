@@ -10,7 +10,8 @@ USE `collabnotes` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `collabnotes`.`ESTUDIANTE` (
   `nombre` VARCHAR(45) NOT NULL,
-  `idEstudiante` INT NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `idEstudiante` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idEstudiante`))
 ENGINE = InnoDB;
 
@@ -35,7 +36,7 @@ ENGINE = InnoDB;
 -- Tabla DOCENTE
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `collabnotes`.`DOCENTE` (
-  `idDocente` INT NOT NULL,
+  `idDocente` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idDocente`))
 ENGINE = InnoDB;
@@ -46,7 +47,7 @@ ENGINE = InnoDB;
 -- Tabla CLASE
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `collabnotes`.`CLASE` (
-  `clave` INT NOT NULL,
+  `clave` INT NOT NULL AUTO_INCREMENT,
   `idDocente` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `urlArchivo` VARCHAR(100) NOT NULL,
