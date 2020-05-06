@@ -48,6 +48,17 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `collabnotes`.`CLASE` (
   `clave` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  `descripcion` VARCHAR(100),
+  `urlArchivo` VARCHAR(100),
+  PRIMARY KEY (`clave`))
+ENGINE = InnoDB;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `collabnotes`.`CLASE` (
+  `clave` INT NOT NULL AUTO_INCREMENT,
   `idDocente` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `urlArchivo` VARCHAR(100) NOT NULL,
