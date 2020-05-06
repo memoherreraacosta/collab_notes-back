@@ -9,15 +9,15 @@ INSERT INTO `collabnotes`.`DOCENTE`(`nombre`) VALUES("Sergio Hdz");
 
 INSERT INTO `collabnotes`.`ARCHIVO`(`url`, `titulo`, `fecha`, `idEstudiante`, `calificacion`) VALUES("drive.com", "Cloud", "2020-03-06", 1, 5);
 
-INSERT INTO `collabnotes`.`CLASE`(`idDocente`, `nombre`,`urlArchivo`) VALUES(1, "Clase cloud", "drive.com");
+INSERT INTO `collabnotes`.`CLASE`(`nombre`,`descripcion`,`urlArchivo`) VALUES("Clase cloud","Aprendizaje de aws y otros servicios", "drive.com");
+
+INSERT INTO `collabnotes`.`CLASE`(`nombre`) VALUES("Clase Testing");
 
 INSERT INTO `collabnotes`.`TAG`(`nombre`) VALUES("Bayes");
 
 INSERT INTO `collabnotes`.`DOCENTE`(`nombre`) VALUES("Ken Bauer");
 
 INSERT INTO `collabnotes`.`ARCHIVO`(`url`, `titulo`, `fecha`, `idEstudiante`, `calificacion`) VALUES("drive2.com", "Testing", "2020-04-16", 2, 0);
-
-INSERT INTO `collabnotes`.`CLASE`(`idDocente`, `nombre`,`urlArchivo`) VALUES(2, "Clase Testing", "drive2.com");
 
 INSERT INTO `collabnotes`.`TAG`(`nombre`) VALUES("Gauss");
 
