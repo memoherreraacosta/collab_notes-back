@@ -17,16 +17,13 @@ CREDENTIALS = {
 }
 
 
-
 def lambda_handler(event, context):
     try:
         cnx = mysql.connector.connect(**CREDENTIALS)
-
         data = event['queryStringParameters']
         key, query = adapter.get_query(data)
-        cursor = cnx.cursor()
+        cursor = cnx.cursor(dictionary=True)
         cursor.execute(query)
-
         if key.lower() != "select":
             cnx.commit()
 
