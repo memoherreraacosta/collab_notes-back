@@ -31,13 +31,10 @@ def lambda_handler(event, context):
 
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-            print("Username o password incorrecto")
             output = "Username o password incorrecto"
         elif err.errno == errorcode.ER_BAD_DB_ERROR:
-            print("La base de datos no existe")
             output = "La base de datos no existe"
         else:
-            print(err)
             output = err
     else:
         cursor.close()
